@@ -1,17 +1,19 @@
 # Assets
 
-Every missing file falls back to an elegant gradient, so nothing looks broken. Replace any file below with better/original media at any time (same name).
+Replace any file below with better/original media at any time (same name).
 
 | File | Where it shows | Current source |
 |------|----------------|----------------|
-| `hero.mp4`, `hero-poster.jpg` | Home hero video | Pexels stock (free licence) |
-| `logo.jpg` | Navbar, favicon, About section | Her TikTok profile logo |
-| `doctor.jpg` | Portrait in About (covers the logo) | Her Instagram post (new account), cropped 4:5 |
-| `services/<slug>.jpg` | Service card and page header background | Her Instagram posts |
-| `work/<slug>-1.jpg` ... `<slug>-8.jpg` | Results gallery (only existing files show) | Her Instagram posts |
+| `logo.jpg` | Navbar, favicon | Her TikTok profile logo |
+| `doctor.jpg` | Portrait in About | Her Instagram post (new account), cropped 4:5 |
+| `services/<slug>.jpg` | Source photos for the card crops | Her Instagram posts |
+| `work/<slug>-1.jpg` ... `<slug>-8.jpg` | Results slider and service gallery (list files in `WORK` in `js/data.js`) | Her Instagram posts |
+| `cards/<slug>.jpg` | Home tiles and service page headers | Cropped from `services/` and `work/` |
+| `doctor-cutout.webp` | Home hero | `doctor.jpg` with background removed and red lighting corrected |
+| `doctor-soft.jpg` | Portrait in About | `doctor.jpg` with red lighting corrected |
 
 Slugs: `levres`, `nez`, `seins`, `blepharoplastie`, `peri-orbitaire`, `laser-cicatrices`, `botox`, `self-care`.
 
-Still without photos: `seins`, `laser-cicatrices` (no matching posts on her public grid) and nothing else is missing.
+No result photos yet: `seins`, `laser-cicatrices`.
 
 Only publish patient photos that have written patient consent.

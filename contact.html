@@ -7,17 +7,22 @@
 <meta name="description" content="Contactez le cabinet du Dr Salima Baya à Kénitra : téléphone 05 30 22 67 12, WhatsApp 07 01 27 00 42, horaires et itinéraire.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=6">
 </head>
-<body data-page="contact" data-solid="1">
+<body data-page="contact">
 <main>
   <section class="page-hero">
     <div class="container">
-      <span class="crumb" data-i18n="nav.contact"></span>
-      <h1 data-i18n="contact.title"></h1>
-      <p data-i18n="contact.sub"></p>
+      <div class="page-card">
+        <img class="page-img" src="assets/cards/seins.jpg" alt="">
+        <div class="page-panel">
+          <span class="crumb" data-i18n="nav.contact"></span>
+          <h1 data-i18n="contact.title"></h1>
+          <p data-i18n="contact.sub"></p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -52,8 +57,8 @@
     </div>
   </section>
 </main>
-<script src="js/data.js"></script>
-<script src="js/main.js"></script>
+<script src="js/data.js?v=6"></script>
+<script src="js/main.js?v=6"></script>
 <script>
 (function () {
   var S = SITE;
@@ -64,9 +69,9 @@
   var soc = document.getElementById("cSocial");
   [["ig", S.instagram, "Instagram"], ["tt", S.tiktok, "TikTok"], ["in", S.linkedin, "LinkedIn"]].forEach(function (x) {
     var a = document.createElement("a");
+    a.className = "round";
     a.href = x[1]; a.target = "_blank"; a.rel = "noopener"; a.setAttribute("aria-label", x[2]);
-    a.style.borderColor = "#e7d3db"; a.innerHTML = DR.ICON[x[0]];
-    a.querySelector("svg").style.fill = "var(--rose)";
+    a.innerHTML = DR.ICON[x[0]];
     soc.appendChild(a);
   });
 
@@ -75,12 +80,7 @@
     wa.href = DR.waLink();
     document.getElementById("cAddr").textContent = S.address[l];
     dir.textContent = DR.t("contact.dir") + " →";
-    var tb = document.getElementById("cHours"); tb.innerHTML = "";
-    S.hours[l].forEach(function (r) {
-      var tr = document.createElement("tr");
-      r.forEach(function (c) { var td = document.createElement("td"); td.textContent = c; tr.appendChild(td); });
-      tb.appendChild(tr);
-    });
+    DR.fillHours(document.getElementById("cHours"));
     var sel = document.getElementById("fTopic"), cur = sel.value; sel.innerHTML = "";
     SERVICES.forEach(function (s) { var o = document.createElement("option"); o.value = s[l].name; o.textContent = s[l].name; sel.appendChild(o); });
     var o = document.createElement("option"); o.value = DR.t("form.other"); o.textContent = DR.t("form.other"); sel.appendChild(o);

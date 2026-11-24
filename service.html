@@ -6,18 +6,22 @@
 <title>Prestation | Dr Salima Baya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=6">
 </head>
-<body data-page="services" data-solid="1">
+<body data-page="services">
 <main>
-  <section class="page-hero bgimg" id="phero">
-    <div class="overlay"></div>
+  <section class="page-hero">
     <div class="container">
-      <div class="crumb"><a href="index.html#services" data-i18n="svc.page.back"></a> / <span id="crumbName"></span></div>
-      <h1 id="svcName"></h1>
-      <p id="svcTag"></p>
+      <div class="page-card">
+        <img class="page-img" id="pimg" alt="">
+        <div class="page-panel">
+          <div class="crumb"><a href="index.html#services" data-i18n="svc.page.back"></a> / <span id="crumbName"></span></div>
+          <h1 id="svcName"></h1>
+          <p id="svcTag"></p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -27,10 +31,10 @@
         <span class="eyebrow" data-i18n="svc.page.about"></span>
         <h2 id="svcIntroTitle"></h2>
         <p id="svcIntro"></p>
-        <h3 style="margin-top:2.2rem;font-size:1.6rem" data-i18n="svc.page.pts"></h3>
+        <h3 data-i18n="svc.page.pts"></h3>
         <ul id="svcPoints"></ul>
 
-        <h3 style="margin-top:3rem;font-size:1.8rem" data-i18n="svc.page.work"></h3>
+        <h3 data-i18n="svc.page.work"></h3>
         <div class="gallery" id="gallery"></div>
         <div class="empty-work" id="emptyWork" hidden>
           <p data-i18n="svc.page.workEmpty"></p>
@@ -38,7 +42,7 @@
         </div>
         <p class="note" data-i18n="svc.page.note"></p>
 
-        <h3 style="margin-top:3rem;font-size:1.5rem" data-i18n="svc.page.other"></h3>
+        <h3 data-i18n="svc.page.other"></h3>
         <div class="other-grid" id="others"></div>
       </div>
       <aside class="aside-card">
@@ -49,39 +53,24 @@
     </div>
   </section>
 </main>
-<script src="js/data.js"></script>
-<script src="js/main.js"></script>
+<script src="js/data.js?v=6"></script>
+<script src="js/main.js?v=6"></script>
 <script>
 (function () {
   var slug = new URLSearchParams(location.search).get("s");
   var idx = SERVICES.findIndex(function (s) { return s.slug === slug; });
   if (idx < 0) { location.replace("index.html#services"); return; }
   var svc = SERVICES[idx];
-  var hero = document.getElementById("phero");
-  hero.style.backgroundImage = "url(assets/services/" + slug + ".jpg), linear-gradient(135deg,#240A18,#7A0F3D)";
+  document.getElementById("pimg").src = "assets/cards/" + slug + ".jpg";
 
-  var MAX = 8, gallery = document.getElementById("gallery"), found = 0, checked = 0;
-  function done() {
-    checked++;
-    if (checked === MAX && !found) document.getElementById("emptyWork").hidden = false;
-  }
-  for (var i = 1; i <= MAX; i++) {
-    (function (n) {
-      var img = new Image();
-      img.alt = svc.fr.name + " " + n;
-      img.onload = function () {
-        found++;
-        var f = document.createElement("figure");
-        f.className = "rv";
-        f.appendChild(img);
-        gallery.appendChild(f);
-        DR.observe(f);
-        done();
-      };
-      img.onerror = done;
-      img.src = "assets/work/" + slug + "-" + n + ".jpg";
-    })(i);
-  }
+  var gallery = document.getElementById("gallery");
+  var photos = (WORK[slug] || []).slice();
+  /* The syringe and product shots are not before/after results, so they only show here */
+  if (slug === "botox") photos.push("assets/work/botox-1.jpg");
+  if (slug === "self-care") photos.push("assets/work/self-care-3.jpg");
+  var list = photos.map(function (src, i) { return { src: src, alt: svc.fr.name + " " + (i + 1) }; });
+  list.forEach(function (item, i) { gallery.appendChild(DR.shot(item, function () { DR.lightbox(list, i); })); });
+  document.getElementById("emptyWork").hidden = list.length > 0;
 
   function render() {
     var l = DR.lang(), d = svc[l];

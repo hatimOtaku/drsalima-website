@@ -7,9 +7,9 @@
 <meta name="description" content="Dr Salima Baya, chirurgie esthétique réparatrice et médecine esthétique anti-âge à Kénitra et Rabat. Nez, seins, paupières, lèvres, botox, laser cicatrices. Prenez rendez-vous sur WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=6">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"MedicalBusiness","name":"Dr Salima Baya – Chirurgie esthétique","telephone":"+212530226712","address":{"@type":"PostalAddress","streetAddress":"Devant la gare TGV, bureau 7, résidence des Deux Palmiers, Ave des FAR","addressLocality":"Kénitra","postalCode":"14000","addressCountry":"MA"},"geo":{"@type":"GeoCoordinates","latitude":34.2537592,"longitude":-6.5802756},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"36"},"sameAs":["https://www.instagram.com/drsalimabaya/","https://www.tiktok.com/@dr.salimabaya.esthetique"]}
 </script>
@@ -17,37 +17,68 @@
 <body data-page="home">
 <main>
   <section class="hero" id="top">
-    <div class="hero-bg"></div>
-    <!-- Hero video: Pexels (free licence, no attribution required). Replace assets/hero.mp4 with her own footage anytime. -->
-    <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true">
-      <source src="assets/hero.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
     <div class="container">
-      <div class="hero-inner">
-        <span class="eyebrow rv" data-i18n="hero.eyebrow"></span>
-        <h1 class="rv" data-i18n="hero.title"></h1>
-        <p class="sub rv" data-i18n="hero.sub"></p>
-        <div class="hero-cta rv">
-          <a class="btn btn-rose" data-wa href="#" target="_blank" rel="noopener" data-i18n="hero.cta1"></a>
-          <a class="btn btn-ghost" href="#services" data-i18n="hero.cta2"></a>
+      <div class="hero-card">
+        <div class="hero-visual">
+          <img class="hero-doc" src="assets/doctor-cutout.webp" alt="Dr Salima Baya" width="318" height="937" fetchpriority="high">
+          <div class="hero-name">
+            <p data-i18n="hero.name"></p>
+            <a class="play" href="https://www.tiktok.com/@dr.salimabaya.esthetique" target="_blank" rel="noopener"><i aria-hidden="true"></i><span data-i18n="hero.video"></span></a>
+          </div>
         </div>
-        <div class="stats rv">
-          <div class="stat"><b>4,8 ★</b><span><span data-i18n="stat.rating"></span> · 36 <span data-i18n="stat.reviews"></span></span></div>
-          <div class="stat"><b>Kénitra</b><span data-i18n="stat.cities"></span></div>        </div>
+        <div class="hero-panel">
+          <h1><span data-i18n="hero.title"></span> <span class="loc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.500A2.500 2.500 0 1 1 12 6.500a2.500 2.500 0 0 1 0 5z"/></svg><span data-i18n="stat.cities"></span></span></h1>
+          <div class="hero-note">
+            <img src="assets/cards/levres.jpg" alt="">
+            <p><b data-i18n="hero.note1"></b><span data-i18n="hero.note2"></span></p>
+          </div>
+          <div class="hero-cta">
+            <a class="btn btn-navy" data-wa href="#" target="_blank" rel="noopener"><span data-i18n="hero.cta1"></span><small data-i18n="hero.cta1s"></small></a>
+            <div class="rating">
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <small><b>4,8</b> · Google · 36 <span data-i18n="stat.reviews"></span></small>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <span class="scroll-cue" aria-hidden="true"></span>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="sec-head rv">
+        <span class="eyebrow" data-i18n="pick.eyebrow"></span>
+        <h2 data-i18n="svc.title"></h2>
+      </div>
+      <div class="bento" id="svcGrid"></div>
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="container rv">
+      <div class="sec-head">
+        <span class="eyebrow" data-i18n="pick.eyebrow"></span>
+        <h2 data-i18n="res.title"></h2>
+      </div>
+      <div class="tabs" id="tabs" role="tablist"></div>
+      <div class="slider veiled" id="slider" role="tabpanel"></div>
+      <div class="res-bar">
+        <div class="arrows">
+          <button class="arrow" type="button" id="prev" aria-label="Précédent">←</button>
+          <button class="arrow" type="button" id="next" aria-label="Suivant">→</button>
+        </div>
+        <button class="veil-btn" type="button" id="veilBtn"></button>
+      </div>
+      <p class="note" data-i18n="svc.page.note"></p>
+    </div>
   </section>
 
   <section id="about">
     <div class="container about">
-      <div class="portrait rv" role="img" aria-label="Dr Salima Baya">
-        <img class="brand-fallback" src="assets/logo.jpg" alt="">
-        <!-- Add her portrait at assets/doctor.jpg (it covers the logo) -->
-        <img src="assets/doctor.jpg" alt="Dr Salima Baya" onerror="this.remove()">
+      <div class="portrait rv">
+        <img src="assets/doctor-soft.jpg" alt="Dr Salima Baya" loading="lazy">
       </div>
-      <div class="rv">
+      <div class="about-body rv">
         <span class="eyebrow" data-i18n="about.eyebrow"></span>
         <h2 data-i18n="about.title"></h2>
         <p data-i18n="about.p1"></p>
@@ -61,18 +92,7 @@
     </div>
   </section>
 
-  <section class="services" id="services">
-    <div class="container">
-      <div class="sec-head rv">
-        <span class="eyebrow" data-i18n="svc.eyebrow"></span>
-        <h2 data-i18n="svc.title"></h2>
-        <p data-i18n="svc.sub"></p>
-      </div>
-      <div class="svc-grid" id="svcGrid"></div>
-    </div>
-  </section>
-
-  <section>
+  <section id="steps">
     <div class="container">
       <div class="sec-head rv">
         <span class="eyebrow" data-i18n="steps.eyebrow"></span>
@@ -86,43 +106,43 @@
     </div>
   </section>
 
-  <section class="cta">
+  <section id="faq">
     <div class="container">
-      <h2 class="rv" data-i18n="cta.title"></h2>
-      <p class="rv" data-i18n="cta.sub"></p>
-      <a class="btn btn-wa rv" data-wa href="#" target="_blank" rel="noopener"><span data-i18n="cta.btn"></span></a>
+      <div class="sec-head rv">
+        <span class="eyebrow" data-i18n="faq.eyebrow"></span>
+        <h2 data-i18n="faq.title"></h2>
+      </div>
+      <div class="faq rv">
+        <details><summary data-i18n="faq.q1"></summary><p data-i18n="faq.a1"></p></details>
+        <details><summary data-i18n="faq.q2"></summary><p data-i18n="faq.a2"></p></details>
+        <details><summary data-i18n="faq.q3"></summary><p data-i18n="faq.a3"></p></details>
+        <details><summary data-i18n="faq.q4"></summary><p data-i18n="faq.a4"></p></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta-card rv">
+        <div>
+          <h2 data-i18n="cta.title"></h2>
+          <p data-i18n="cta.sub"></p>
+          <div class="actions">
+            <a class="btn btn-navy" data-wa href="#" target="_blank" rel="noopener" data-i18n="cta.btn"></a>
+            <a class="btn btn-light" href="contact.html" data-i18n="cta.contact"></a>
+          </div>
+        </div>
+        <div class="cta-info">
+          <p data-addr></p>
+          <table class="hours" id="homeHours"></table>
+          <p style="margin:.8rem 0 0"><a id="homeDir" target="_blank" rel="noopener" href="#" data-i18n="contact.dir"></a></p>
+        </div>
+      </div>
     </div>
   </section>
 </main>
-<script src="js/data.js"></script>
-<script src="js/main.js"></script>
-<script>
-(function () {
-  var grid = document.getElementById("svcGrid");
-  window.SERVICES.forEach(function (s, i) {
-    var a = document.createElement("a");
-    a.className = "svc-card rv t" + (i + 1);
-    a.href = "service.html?s=" + s.slug;
-    a.innerHTML = '<span class="num">' + s.n + '</span><h3 data-svc="' + s.slug + '"></h3><span class="tag" data-tag="' + s.slug + '"></span>' +
-      '<span class="more"><span data-i18n="svc.more"></span> <i>→</i></span>';
-    grid.appendChild(a);
-  });
-  function fill() {
-    var l = DR.lang();
-    document.querySelectorAll("[data-tag]").forEach(function (el) {
-      var s = SERVICES.find(function (x) { return x.slug === el.dataset.tag; });
-      el.textContent = s[l].tag;
-    });
-  }
-  DR.applyLang();
-  document.querySelectorAll(".svc-card").forEach(function (c) { DR.observe(c); });
-  document.addEventListener("langchange", fill);
-  fill();
-  var v = document.getElementById("heroVideo");
-  /* Hide the video (animated gradient shows instead) only if the last source fails to load */
-  var last = v.querySelector("source:last-of-type");
-  if (last) last.addEventListener("error", function () { v.style.display = "none"; });
-})();
-</script>
+<script src="js/data.js?v=6"></script>
+<script src="js/main.js?v=6"></script>
+<script src="js/home.js?v=6"></script>
 </body>
 </html>
