@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Dr Salima Baya – Kénitra</title>
+<meta name="description" content="Contactez le cabinet du Dr Salima Baya à Kénitra : téléphone 05 30 22 67 12, WhatsApp 07 01 27 00 42, horaires et itinéraire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+<link rel="stylesheet" href="css/style.css?v=5">
+</head>
+<body data-page="contact" data-solid="1">
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="crumb" data-i18n="nav.contact"></span>
+      <h1 data-i18n="contact.title"></h1>
+      <p data-i18n="contact.sub"></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="card rv">
+          <h3 data-i18n="contact.call"></h3>
+          <div class="info-row"><div><b data-i18n="contact.mobile"></b><a id="cWa" target="_blank" rel="noopener" href="#"></a></div></div>
+          <div class="info-row"><div><b data-i18n="contact.fixed"></b><a id="cTel" href="#"></a></div></div>
+          <div class="info-row"><div><b data-i18n="contact.addr"></b><span id="cAddr"></span><br>
+            <a id="cDir" target="_blank" rel="noopener" href="#" style="color:var(--rose);font-weight:600"></a></div></div>
+          <div class="info-row"><div style="width:100%"><b data-i18n="contact.hours"></b><table class="hours" id="cHours"></table></div></div>
+          <div class="info-row"><div><b data-i18n="contact.social"></b>
+            <div class="socials" id="cSocial" style="margin-top:.6rem"></div></div></div>
+        </div>
+
+        <div class="card rv">
+          <h3 data-i18n="form.title"></h3>
+          <form id="quick">
+            <label for="fName" data-i18n="form.name"></label>
+            <input id="fName" required maxlength="80" autocomplete="name">
+            <label for="fTopic" data-i18n="form.topic"></label>
+            <select id="fTopic"></select>
+            <label for="fMsg" data-i18n="form.msg"></label>
+            <textarea id="fMsg" rows="5" maxlength="600"></textarea>
+            <button class="btn btn-wa" type="submit"><span data-i18n="form.send"></span></button>
+          </form>
+        </div>
+      </div>
+      <iframe class="map rv" id="map" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  var S = SITE;
+  document.getElementById("map").src = S.mapsEmbed;
+  var wa = document.getElementById("cWa"); wa.textContent = S.whatsappDisplay;
+  var tel = document.getElementById("cTel"); tel.textContent = S.phoneDisplay; tel.href = "tel:" + S.phone;
+  var dir = document.getElementById("cDir"); dir.href = S.mapsLink;
+  var soc = document.getElementById("cSocial");
+  [["ig", S.instagram, "Instagram"], ["tt", S.tiktok, "TikTok"], ["in", S.linkedin, "LinkedIn"]].forEach(function (x) {
+    var a = document.createElement("a");
+    a.href = x[1]; a.target = "_blank"; a.rel = "noopener"; a.setAttribute("aria-label", x[2]);
+    a.style.borderColor = "#e7d3db"; a.innerHTML = DR.ICON[x[0]];
+    a.querySelector("svg").style.fill = "var(--rose)";
+    soc.appendChild(a);
+  });
+
+  function render() {
+    var l = DR.lang();
+    wa.href = DR.waLink();
+    document.getElementById("cAddr").textContent = S.address[l];
+    dir.textContent = DR.t("contact.dir") + " →";
+    var tb = document.getElementById("cHours"); tb.innerHTML = "";
+    S.hours[l].forEach(function (r) {
+      var tr = document.createElement("tr");
+      r.forEach(function (c) { var td = document.createElement("td"); td.textContent = c; tr.appendChild(td); });
+      tb.appendChild(tr);
+    });
+    var sel = document.getElementById("fTopic"), cur = sel.value; sel.innerHTML = "";
+    SERVICES.forEach(function (s) { var o = document.createElement("option"); o.value = s[l].name; o.textContent = s[l].name; sel.appendChild(o); });
+    var o = document.createElement("option"); o.value = DR.t("form.other"); o.textContent = DR.t("form.other"); sel.appendChild(o);
+    if (cur) sel.value = cur;
+  }
+  document.addEventListener("langchange", render);
+  render();
+
+  document.getElementById("quick").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var l = DR.lang(), n = document.getElementById("fName").value.trim(),
+        t = document.getElementById("fTopic").value, m = document.getElementById("fMsg").value.trim();
+    var txt = l === "ar"
+      ? "مرحباً دكتورة بايا،\nاسمي: " + n + "\nالموضوع: " + t + (m ? "\n" + m : "")
+      : "Bonjour Dr Baya,\nJe m'appelle " + n + ".\nSujet : " + t + (m ? "\n" + m : "");
+    window.open(DR.waLink(txt), "_blank", "noopener");
+  });
+})();
+</script>
+</body>
+</html>

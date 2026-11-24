@@ -1,0 +1,176 @@
+/* Dr Salima Baya — site data (contact details, services, translations) */
+window.SITE = {
+  name: "Dr Salima Baya",
+  whatsapp: "212701270042",
+  whatsappDisplay: "07 01 27 00 42",
+  phone: "+212530226712",
+  phoneDisplay: "05 30 22 67 12",
+  instagram: "https://www.instagram.com/drsalimabaya/",
+  tiktok: "https://www.tiktok.com/@dr.salimabaya.esthetique",
+  linkedin: "https://www.linkedin.com/in/dr-salima-baya-09995314a",
+  mapsLink: "https://maps.app.goo.gl/GWLumL5fNQL8e67D7",
+  mapsEmbed: "https://www.google.com/maps?q=34.2537592,-6.5802756&z=16&output=embed",
+  address: {
+    fr: "Devant la gare TGV, bureau 7, résidence des Deux Palmiers, Ave des FAR, Kénitra 14000",
+    ar: "أمام محطة القطار فائق السرعة، مكتب 7، إقامة النخلتين، شارع القوات المسلحة الملكية، القنيطرة 14000"
+  },
+  hours: {
+    fr: [["Lundi – Vendredi", "10:00 – 16:00"], ["Samedi", "10:00 – 13:00"], ["Dimanche", "Fermé"]],
+    ar: [["الاثنين – الجمعة", "10:00 – 16:00"], ["السبت", "10:00 – 13:00"], ["الأحد", "مغلق"]]
+  },
+  rating: { score: "4,8", count: 36 }
+};
+
+window.SERVICES = [
+  {
+    slug: "levres", n: "01",
+    fr: { name: "Lèvres", tag: "Volume, contour, hydratation",
+      intro: "Un traitement des lèvres doit rester naturel : redessiner le contour, restaurer l'hydratation et le volume sans jamais déséquilibrer le visage.",
+      points: ["Harmonisation du contour et des proportions", "Hydratation et lissage des ridules", "Résultat naturel, adapté à votre visage", "Évaluation personnalisée lors de la consultation"] },
+    ar: { name: "الشفاه", tag: "الحجم، الشكل، الترطيب",
+      intro: "علاج الشفاه يجب أن يبقى طبيعياً: إعادة رسم الشكل واستعادة الترطيب والحجم دون الإخلال بتوازن الوجه.",
+      points: ["تناسق شكل الشفاه وتناسب الوجه", "ترطيب وتنعيم الخطوط الدقيقة", "نتيجة طبيعية تناسب ملامحك", "تقييم شخصي خلال الاستشارة"] }
+  },
+  {
+    slug: "nez", n: "02",
+    fr: { name: "Nez · Rhinoplastie", tag: "Harmonie du profil",
+      intro: "La rhinoplastie vise l'harmonie du visage : un nez en équilibre avec le front, les yeux et le menton, tout en préservant la fonction respiratoire.",
+      points: ["Analyse du profil et de la respiration", "Planification sur mesure", "Technique respectueuse des structures", "Suivi post-opératoire attentif"] },
+    ar: { name: "الأنف · تجميل الأنف", tag: "تناسق ملامح الوجه",
+      intro: "يهدف تجميل الأنف إلى تناسق الوجه: أنف متوازن مع الجبهة والعينين والذقن مع الحفاظ على وظيفة التنفس.",
+      points: ["تحليل شكل الوجه والتنفس", "تخطيط مخصص لكل حالة", "تقنية تحترم البنية الطبيعية", "متابعة دقيقة بعد العملية"] }
+  },
+  {
+    slug: "seins", n: "03",
+    fr: { name: "Seins · Chirurgie mammaire", tag: "Augmentation, lifting, réduction, reconstruction",
+      intro: "Chirurgie esthétique et réparatrice du sein, menée avec une attention particulière à la symétrie, à la proportion et à la sécurité.",
+      points: ["Augmentation, lifting ou réduction mammaire", "Chirurgie réparatrice", "Choix des techniques selon votre morphologie", "Consultation détaillée et suivi"] },
+    ar: { name: "الثدي · جراحة الثدي", tag: "تكبير، شد، تصغير، ترميم",
+      intro: "جراحة تجميلية وترميمية للثدي مع اهتمام خاص بالتناظر والتناسب والسلامة.",
+      points: ["تكبير أو شد أو تصغير الثدي", "جراحة الترميم", "اختيار التقنية حسب بنية الجسم", "استشارة مفصلة ومتابعة"] }
+  },
+  {
+    slug: "blepharoplastie", n: "04",
+    fr: { name: "Blépharoplastie", tag: "Paupières, regard reposé",
+      intro: "La chirurgie des paupières redonne un regard plus frais et plus ouvert, en corrigeant l'excès de peau et les poches avec finesse.",
+      points: ["Paupières supérieures et/ou inférieures", "Regard reposé, jamais artificiel", "Cicatrices discrètes", "Évaluation préalable de la peau et de la vision"] },
+    ar: { name: "تجميل الجفون", tag: "الجفون ونظرة مرتاحة",
+      intro: "تعيد جراحة الجفون نظرة أكثر انتعاشاً وانفتاحاً عبر تصحيح الجلد الزائد والانتفاخات بدقة.",
+      points: ["الجفون العلوية و/أو السفلية", "نظرة مرتاحة وطبيعية", "ندوب خفية", "تقييم مسبق للجلد والرؤية"] }
+  },
+  {
+    slug: "peri-orbitaire", n: "05",
+    fr: { name: "Contour des yeux", tag: "Zone péri-orbitaire",
+      intro: "Cernes, creux, ridules : la zone péri-orbitaire demande un geste précis pour rajeunir le regard en douceur.",
+      points: ["Traitement des cernes et des creux", "Lissage des ridules du contour de l'œil", "Techniques médicales non chirurgicales", "Protocole adapté à chaque regard"] },
+    ar: { name: "محيط العينين", tag: "المنطقة حول العين",
+      intro: "الهالات والتجاويف والخطوط الدقيقة: منطقة محيط العين تتطلب لمسة دقيقة لتجديد النظرة بلطف.",
+      points: ["علاج الهالات والتجاويف", "تنعيم الخطوط حول العين", "تقنيات طبية غير جراحية", "بروتوكول مناسب لكل نظرة"] }
+  },
+  {
+    slug: "laser-cicatrices", n: "06",
+    fr: { name: "Laser cicatrices", tag: "Améliorer la qualité de la peau",
+      intro: "Le laser aide à atténuer l'aspect des cicatrices et à améliorer la texture de la peau, selon leur âge et leur nature.",
+      points: ["Cicatrices post-chirurgicales, d'acné ou traumatiques", "Amélioration de la texture et de la couleur", "Plan de séances personnalisé", "Conseils de soins avant et après"] },
+    ar: { name: "ليزر الندوب", tag: "تحسين جودة البشرة",
+      intro: "يساعد الليزر على تخفيف مظهر الندوب وتحسين ملمس البشرة حسب عمرها وطبيعتها.",
+      points: ["ندوب ما بعد الجراحة أو حب الشباب أو الإصابات", "تحسين الملمس واللون", "برنامج جلسات مخصص", "نصائح قبل وبعد الجلسات"] }
+  },
+  {
+    slug: "botox", n: "07",
+    fr: { name: "Botox", tag: "Prévention et lissage des rides",
+      intro: "Utilisé avec mesure, le botox lisse les rides d'expression tout en conservant la mobilité et le naturel du visage.",
+      points: ["Front, glabelle, pattes d'oie", "Dosage mesuré, expression préservée", "Séance rapide, sans éviction sociale", "Effet progressif et naturel"] },
+    ar: { name: "البوتوكس", tag: "الوقاية وتنعيم التجاعيد",
+      intro: "عند استعماله بقدر محسوب، ينعّم البوتوكس تجاعيد التعبير مع الحفاظ على حركة الوجه وطبيعته.",
+      points: ["الجبهة، ما بين الحاجبين، قدم الغراب", "جرعة محسوبة مع الحفاظ على التعابير", "جلسة سريعة دون انقطاع عن الحياة", "مفعول تدريجي وطبيعي"] }
+  },
+  {
+    slug: "self-care", n: "08",
+    fr: { name: "Self Care · Anti-âge", tag: "Éclat et prévention",
+      intro: "Médecine esthétique anti-âge : des soins sur mesure pour préserver l'éclat, la fermeté et la qualité de votre peau dans le temps.",
+      points: ["Bilan de peau personnalisé", "Soins d'éclat et d'hydratation", "Prévention du vieillissement cutané", "Routine et conseils adaptés"] },
+    ar: { name: "العناية بالبشرة · مكافحة الشيخوخة", tag: "إشراقة ووقاية",
+      intro: "طب التجميل لمكافحة الشيخوخة: عناية مخصصة للحفاظ على إشراقة البشرة وتماسكها وجودتها مع الوقت.",
+      points: ["تقييم شخصي للبشرة", "عناية بالإشراق والترطيب", "الوقاية من شيخوخة الجلد", "روتين ونصائح مناسبة"] }
+  }
+];
+
+window.I18N = {
+  fr: {
+    "nav.home": "Accueil", "nav.about": "À propos", "nav.services": "Prestations", "nav.contact": "Contact",
+    "nav.cta": "Consultation",
+    "hero.eyebrow": "Chirurgie esthétique réparatrice · Médecine esthétique anti-âge",
+    "hero.title": "L'art de révéler <em>votre</em> beauté naturelle",
+    "hero.sub": "Dr Salima Baya, chirurgien plastique et médecin esthétique à Kénitra et Rabat. Une approche précise, sûre et sur mesure.",
+    "hero.cta1": "Prendre rendez-vous", "hero.cta2": "Découvrir les prestations",
+    "stat.rating": "Note Google", "stat.reviews": "avis patients", "stat.cities": "Kénitra · Rabat", "stat.langs": "Français · العربية",
+    "about.eyebrow": "À propos", "about.title": "Une médecine esthétique exigeante et humaine",
+    "about.p1": "Le Dr Salima Baya exerce la chirurgie esthétique et réparatrice ainsi que la médecine esthétique anti-âge. Son approche repose sur l'écoute, l'analyse du visage et du corps dans leur ensemble, et la recherche d'un résultat harmonieux.",
+    "about.p2": "De la chirurgie du nez, des paupières et du sein aux soins du regard, au laser et au botox, chaque prise en charge commence par une consultation détaillée pour définir ensemble le meilleur plan.",
+    "about.v1": "Écoute", "about.v1d": "Vos attentes au centre de la consultation",
+    "about.v2": "Précision", "about.v2d": "Un geste maîtrisé, des résultats naturels",
+    "about.v3": "Sécurité", "about.v3d": "Des protocoles rigoureux, un suivi attentif",
+    "svc.eyebrow": "Prestations", "svc.title": "Ce que je fais pour vous",
+    "svc.sub": "Choisissez un domaine pour découvrir les réalisations et demander une consultation.",
+    "svc.more": "Voir les réalisations",
+    "steps.eyebrow": "Parcours", "steps.title": "Votre parcours en trois étapes",
+    "steps.1": "Consultation", "steps.1d": "Échange, examen et définition précise de votre projet.",
+    "steps.2": "Plan sur mesure", "steps.2d": "Technique, déroulé, devis et conseils personnalisés.",
+    "steps.3": "Suivi", "steps.3d": "Accompagnement avant, pendant et après l'intervention.",
+    "cta.title": "Une question ? Parlons-en sur WhatsApp",
+    "cta.sub": "Réponse directe pour organiser votre consultation.",
+    "cta.btn": "Écrire sur WhatsApp",
+    "svc.page.about": "Présentation", "svc.page.pts": "Ce que comprend la prise en charge",
+    "svc.page.work": "Réalisations", "svc.page.workEmpty": "Découvrez les réalisations de cette catégorie dans les stories à la une du compte Instagram.",
+    "svc.page.insta": "Voir sur Instagram", "svc.page.ask": "Demander une consultation",
+    "svc.page.other": "Autres prestations", "svc.page.note": "Chaque résultat est propre à chaque patient. Une consultation est nécessaire pour évaluer votre situation.",
+    "svc.page.back": "Toutes les prestations",
+    "contact.title": "Contact", "contact.sub": "Prenez rendez-vous ou posez votre question. Nous vous répondons rapidement.",
+    "contact.call": "Appeler", "contact.wa": "WhatsApp", "contact.addr": "Cabinet", "contact.hours": "Horaires",
+    "contact.social": "Réseaux", "contact.dir": "Itinéraire", "contact.mobile": "Mobile / WhatsApp", "contact.fixed": "Fixe",
+    "form.title": "Message rapide", "form.name": "Votre nom", "form.msg": "Votre message", "form.send": "Envoyer par WhatsApp",
+    "form.topic": "Sujet", "form.other": "Autre",
+    "footer.short": "Chirurgie esthétique",
+    "footer.tag": "Chirurgie esthétique réparatrice & médecine esthétique anti-âge", "footer.nav": "Navigation", "footer.rights": "Tous droits réservés.",
+    "wa.default": "Bonjour Dr Baya, je souhaite prendre rendez-vous pour une consultation."
+  },
+  ar: {
+    "nav.home": "الرئيسية", "nav.about": "من أنا", "nav.services": "الخدمات", "nav.contact": "اتصل بنا",
+    "nav.cta": "استشارة",
+    "hero.eyebrow": "جراحة التجميل والتقويم · طب التجميل ومكافحة الشيخوخة",
+    "hero.title": "فنّ إبراز جمالك <em>الطبيعي</em>",
+    "hero.sub": "الدكتورة سليمة بايا، جراحة تجميل وطبيبة تجميل بالقنيطرة والرباط. مقاربة دقيقة وآمنة ومفصّلة على مقاسك.",
+    "hero.cta1": "احجزي موعداً", "hero.cta2": "اكتشفي الخدمات",
+    "stat.rating": "تقييم جوجل", "stat.reviews": "رأي مريضة", "stat.cities": "القنيطرة · الرباط", "stat.langs": "Français · العربية",
+    "about.eyebrow": "من أنا", "about.title": "طب تجميل دقيق وإنساني",
+    "about.p1": "تمارس الدكتورة سليمة بايا جراحة التجميل والتقويم وطب التجميل لمكافحة الشيخوخة. يقوم نهجها على الإنصات وتحليل الوجه والجسم ككل والسعي إلى نتيجة متناسقة.",
+    "about.p2": "من جراحة الأنف والجفون والثدي إلى العناية بمحيط العينين والليزر والبوتوكس، تبدأ كل حالة باستشارة مفصلة لتحديد أفضل خطة معاً.",
+    "about.v1": "الإنصات", "about.v1d": "توقعاتك في صلب الاستشارة",
+    "about.v2": "الدقة", "about.v2d": "لمسة متقنة ونتائج طبيعية",
+    "about.v3": "السلامة", "about.v3d": "بروتوكولات صارمة ومتابعة دقيقة",
+    "svc.eyebrow": "الخدمات", "svc.title": "ما أقدمه لك",
+    "svc.sub": "اختاري مجالاً لاكتشاف الأعمال وطلب استشارة.",
+    "svc.more": "عرض الأعمال",
+    "steps.eyebrow": "المسار", "steps.title": "مسارك في ثلاث خطوات",
+    "steps.1": "الاستشارة", "steps.1d": "حوار وفحص وتحديد دقيق لمشروعك.",
+    "steps.2": "خطة مخصصة", "steps.2d": "التقنية والمراحل والتكلفة ونصائح شخصية.",
+    "steps.3": "المتابعة", "steps.3d": "مرافقة قبل العملية وأثناءها وبعدها.",
+    "cta.title": "لديك سؤال؟ تواصلي معنا عبر واتساب",
+    "cta.sub": "رد مباشر لتنظيم استشارتك.",
+    "cta.btn": "راسلينا على واتساب",
+    "svc.page.about": "نبذة", "svc.page.pts": "ما تشمله العناية",
+    "svc.page.work": "الأعمال", "svc.page.workEmpty": "اكتشفي أعمال هذه الفئة في القصص المميزة على حساب إنستغرام.",
+    "svc.page.insta": "عرض على إنستغرام", "svc.page.ask": "اطلبي استشارة",
+    "svc.page.other": "خدمات أخرى", "svc.page.note": "تختلف النتائج من مريضة إلى أخرى. الاستشارة ضرورية لتقييم حالتك.",
+    "svc.page.back": "كل الخدمات",
+    "contact.title": "اتصل بنا", "contact.sub": "احجزي موعداً أو اطرحي سؤالك. نجيبك بسرعة.",
+    "contact.call": "اتصال", "contact.wa": "واتساب", "contact.addr": "العيادة", "contact.hours": "أوقات العمل",
+    "contact.social": "التواصل الاجتماعي", "contact.dir": "الاتجاهات", "contact.mobile": "الهاتف / واتساب", "contact.fixed": "الهاتف الثابت",
+    "form.title": "رسالة سريعة", "form.name": "اسمك", "form.msg": "رسالتك", "form.send": "إرسال عبر واتساب",
+    "form.topic": "الموضوع", "form.other": "أخرى",
+    "footer.short": "جراحة التجميل",
+    "footer.tag": "جراحة التجميل والتقويم وطب التجميل لمكافحة الشيخوخة", "footer.nav": "التنقل", "footer.rights": "جميع الحقوق محفوظة.",
+    "wa.default": "مرحباً دكتورة بايا، أرغب في حجز موعد للاستشارة."
+  }
+};

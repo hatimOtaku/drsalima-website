@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prestation | Dr Salima Baya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+<link rel="stylesheet" href="css/style.css?v=5">
+</head>
+<body data-page="services" data-solid="1">
+<main>
+  <section class="page-hero bgimg" id="phero">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="crumb"><a href="index.html#services" data-i18n="svc.page.back"></a> / <span id="crumbName"></span></div>
+      <h1 id="svcName"></h1>
+      <p id="svcTag"></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container svc-layout">
+      <div>
+        <span class="eyebrow" data-i18n="svc.page.about"></span>
+        <h2 id="svcIntroTitle"></h2>
+        <p id="svcIntro"></p>
+        <h3 style="margin-top:2.2rem;font-size:1.6rem" data-i18n="svc.page.pts"></h3>
+        <ul id="svcPoints"></ul>
+
+        <h3 style="margin-top:3rem;font-size:1.8rem" data-i18n="svc.page.work"></h3>
+        <div class="gallery" id="gallery"></div>
+        <div class="empty-work" id="emptyWork" hidden>
+          <p data-i18n="svc.page.workEmpty"></p>
+          <a class="btn btn-rose" href="https://www.instagram.com/drsalimabaya/" target="_blank" rel="noopener" data-i18n="svc.page.insta"></a>
+        </div>
+        <p class="note" data-i18n="svc.page.note"></p>
+
+        <h3 style="margin-top:3rem;font-size:1.5rem" data-i18n="svc.page.other"></h3>
+        <div class="other-grid" id="others"></div>
+      </div>
+      <aside class="aside-card">
+        <h3 data-i18n="svc.page.ask"></h3>
+        <p data-i18n="cta.sub"></p>
+        <a class="btn btn-wa" id="waAsk" href="#" target="_blank" rel="noopener"><span data-i18n="cta.btn"></span></a>
+      </aside>
+    </div>
+  </section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  var slug = new URLSearchParams(location.search).get("s");
+  var idx = SERVICES.findIndex(function (s) { return s.slug === slug; });
+  if (idx < 0) { location.replace("index.html#services"); return; }
+  var svc = SERVICES[idx];
+  var hero = document.getElementById("phero");
+  hero.style.backgroundImage = "url(assets/services/" + slug + ".jpg), linear-gradient(135deg,#240A18,#7A0F3D)";
+
+  var MAX = 8, gallery = document.getElementById("gallery"), found = 0, checked = 0;
+  function done() {
+    checked++;
+    if (checked === MAX && !found) document.getElementById("emptyWork").hidden = false;
+  }
+  for (var i = 1; i <= MAX; i++) {
+    (function (n) {
+      var img = new Image();
+      img.alt = svc.fr.name + " " + n;
+      img.onload = function () {
+        found++;
+        var f = document.createElement("figure");
+        f.className = "rv";
+        f.appendChild(img);
+        gallery.appendChild(f);
+        DR.observe(f);
+        done();
+      };
+      img.onerror = done;
+      img.src = "assets/work/" + slug + "-" + n + ".jpg";
+    })(i);
+  }
+
+  function render() {
+    var l = DR.lang(), d = svc[l];
+    document.title = d.name + " | Dr Salima Baya";
+    document.getElementById("svcName").textContent = d.name;
+    document.getElementById("crumbName").textContent = d.name;
+    document.getElementById("svcTag").textContent = d.tag;
+    document.getElementById("svcIntroTitle").textContent = d.name;
+    document.getElementById("svcIntro").textContent = d.intro;
+    var ul = document.getElementById("svcPoints");
+    ul.innerHTML = "";
+    d.points.forEach(function (p) { var li = document.createElement("li"); li.textContent = p; ul.appendChild(li); });
+    var ot = document.getElementById("others");
+    ot.innerHTML = "";
+    SERVICES.forEach(function (s) {
+      if (s.slug === slug) return;
+      var a = document.createElement("a");
+      a.className = "chip"; a.href = "service.html?s=" + s.slug; a.textContent = s[l].name;
+      ot.appendChild(a);
+    });
+    var msg = l === "ar"
+      ? "مرحباً دكتورة بايا، أرغب في استشارة بخصوص: " + d.name
+      : "Bonjour Dr Baya, je souhaite une consultation concernant : " + d.name;
+    document.getElementById("waAsk").href = DR.waLink(msg);
+  }
+  document.addEventListener("langchange", render);
+  render();
+})();
+</script>
+</body>
+</html>
