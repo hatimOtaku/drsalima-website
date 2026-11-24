@@ -6,12 +6,12 @@ Every missing file falls back to an elegant gradient, so nothing looks broken. R
 |------|----------------|----------------|
 | `hero.mp4`, `hero-poster.jpg` | Home hero video | Pexels stock (free licence) |
 | `logo.jpg` | Navbar, favicon, About section | Her TikTok profile logo |
-| `doctor.jpg` | Portrait in About (covers the logo) | **Missing, add her portrait (4:5)** |
+| `doctor.jpg` | Portrait in About (covers the logo) | Her Instagram post (new account), cropped 4:5 |
 | `services/<slug>.jpg` | Service card and page header background | Her Instagram posts |
 | `work/<slug>-1.jpg` ... `<slug>-8.jpg` | Results gallery (only existing files show) | Her Instagram posts |
 
 Slugs: `levres`, `nez`, `seins`, `blepharoplastie`, `peri-orbitaire`, `laser-cicatrices`, `botox`, `self-care`.
 
-Still without photos: `seins`, `laser-cicatrices` (no matching posts on her public grid) and the doctor portrait.
+Still without photos: `seins`, `laser-cicatrices` (no matching posts on her public grid) and nothing else is missing.
 
 Only publish patient photos that have written patient consent.
